@@ -33,9 +33,9 @@
     "react-helmet/react-side-effect": "2.1.0"
   },
   "scripts": {
-    "start": "rescripts start",
-    "build": "rescripts  build",
-    "test": "rescripts test",
+    "start": "react-scripts start",
+    "build": "react-scripts  build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "browserslist": {
