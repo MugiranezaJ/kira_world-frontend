@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import axios from "axios"
 import { useFlutterwave } from 'flutterwave-react-v3';
 // import { openExchangeId } from "data/keys"
-import { openExchangeId } from "../../../../../data/keys.js"
+// import { openExchangeId } from "../../../../../data/keys.js"
 import {
   Label,
   Error,
@@ -42,6 +42,7 @@ function Send({ setStep }) {
   const [exchangeRate, setExchangeRate] = useState("")
   const [sendCurrency, setSendCurrency] = useState(options[0].value)
   const [recipientCurrency, setRecipientCurrency] = useState(options[3].value)
+  const openExchangeId_ = '24aa2f3c370e45e7bfb387392816314b'
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +50,7 @@ function Send({ setStep }) {
         data: { rates }
       } = await axios.get(`	https://openexchangerates.org/api/latest.json`, {
         params: {
-          app_id: openExchangeId,
+          app_id: openExchangeId_,
           base: sendCurrency,
           symbols: recipientCurrency,
           prettyprint: true,
