@@ -36,12 +36,13 @@ function Send({ setStep }) {
     { value: "usd", label: "USD", description: "United States dollar" },
     { value: "cad", label: "CAD", description: "Canadian dollar" },
     { value: "gbp", label: "GBP", description: "British pound" },
-    { value: "mxn", label: "MXN", description: "Mexican peso" }
+    { value: "mxn", label: "MXN", description: "Mexican peso" },
+    { value: "rwf", label: "RWF", description: "Rwandan Franc"}
   ]
 
   const [exchangeRate, setExchangeRate] = useState("")
   const [sendCurrency, setSendCurrency] = useState(options[0].value)
-  const [recipientCurrency, setRecipientCurrency] = useState(options[3].value)
+  const [recipientCurrency, setRecipientCurrency] = useState(options[4].value)
   const openExchangeId_ = '24aa2f3c370e45e7bfb387392816314b'
 
   useEffect(() => {
@@ -99,7 +100,7 @@ function Send({ setStep }) {
           send: 10.0,
           recipient: 0,
           sendCurrency: options[0],
-          recipientCurrency: options[3]
+          recipientCurrency: options[4]
         }}
         validationSchema={() =>
           Yup.object().shape({
