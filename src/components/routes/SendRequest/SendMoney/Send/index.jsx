@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react"
 import { Formik, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
-import { useFlutterwave } from 'flutterwave-react-v3';
+// import { useFlutterwave } from 'flutterwave-react-v3';
 // import { openExchangeId } from "data/keys"
 // import { openExchangeId } from "../../../../../data/keys.js"
 import {
@@ -85,7 +85,7 @@ function Send({ setStep }) {
     },
   };
 
-  const handleFlutterPayment = useFlutterwave(config);
+  // const handleFlutterPayment = useFlutterwave(config);
 
   return (
     <Fragment>
@@ -112,14 +112,14 @@ function Send({ setStep }) {
           })
         }
         onSubmit={(values, { setSubmitting }) => {
-          handleFlutterPayment({
-            callback: (response) => {
-              console.log('Payment Successful', response);
-            },
-            onClose: () => {
+          // handleFlutterPayment({
+          //   callback: (response) => {
+          //     console.log('Payment Successful', response);
+          //   },
+          //   onClose: () => {
     
-            },
-          });
+          //   },
+          // });
           // console.log("Submiiit")
           // setStep({ step: "confirm", details: { ...values } })
           // setSubmitting(false)

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react"
 import { State } from "state"
-import { Link, navigate } from "@reach/router"
+import { Link } from "@reach/router"
 import { Formik, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
@@ -22,16 +22,8 @@ import {
 } from "components/common"
 import { Wrapper } from "./styles"
 
-function LoginForm() {
-  const { state, dispatch } = useContext(State)
-
-  useEffect(() => {
-    if (state.authenticated) {
-      navigate("/dashboard")
-    }
-  }, [state.authenticated])
-
-
+function LoginForm(props) {
+  console.log(props)
   return (
     <Wrapper>
       <Formik
@@ -53,20 +45,7 @@ function LoginForm() {
           { email, password, rememberMe },
           { setSubmitting, setFieldValue }
         ) => {
-          try {
-            const user = await axios.post("/login", {
-              email,
-              password,
-              rememberMe
-            })
-            dispatch({
-              type: "LOGGED_IN",
-              payload: user
-            })
-          } catch (err) {
-            setSubmitting(false)
-            setFieldValue("submitError", true)
-          }
+          props.onLogin({email, password})
         }}
       >
         {({
@@ -123,12 +102,12 @@ function LoginForm() {
             </InputGroup>
 
             <ButtonPrimary stretch type="submit">
-              Login
+              {props.login.loading ? "Logging in..." : "Login"}
             </ButtonPrimary>
+            <div>{props.login.success ? "" : props.login.error}</div>
           </Form>
         )}
       </Formik>
-
       <Account>
         Don't have an account?{" "}
         <ButtonLink as={Link} to="/signup">
@@ -139,4 +118,19 @@ function LoginForm() {
   )
 }
 
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     onLogin: (values) => {
+//       dispatch(loginAction(values));
+//     },
+//   };
+// }
+
+// const mapStateToProps = ({ login }) => ({
+//   login,
+// });
+
+// export { LoginForm };
+// export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 export default LoginForm

@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
-import { State } from "state"
+import React from "react"
+// import { State } from "state"
 import { Layout } from "components/common"
+import Login from "components/routes/Login"
 import {
   Landing,
-  Login,
   Signup,
   Dashboard,
   Transactions,
@@ -14,11 +14,16 @@ import {
   Send
 } from "components/routes"
 import { Router } from "@reach/router"
+import { connect } from "react-redux"
+import { navigate } from "@reach/router"
 
-function App() {
-  const { state } = useContext(State)
+function App(props) {
+  // const { state } = useContext(State)
+  if(props.login.success){
+    navigate("/dashboard")
+  }
 
-  if (state.authenticated) {
+  if (props.login.success) {
     return (
       <Layout>
         <Router>
@@ -48,4 +53,11 @@ function App() {
   )
 }
 
-export default App
+const mapStateToProps = ({ login }) => ({
+  login,
+});
+
+export { App };
+export default connect(mapStateToProps)(App);
+
+// export default App

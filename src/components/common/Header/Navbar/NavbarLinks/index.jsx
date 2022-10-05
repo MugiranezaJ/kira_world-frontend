@@ -1,16 +1,17 @@
 import React, { Fragment, useContext } from "react"
-import { State } from "state"
+// import { State } from "state"
 import { Link, Location } from "@reach/router"
 import { NavLink } from "./styles"
 import { home, dashboard } from "./links"
+import { connect } from "react-redux"
 
-function NavbarLinks() {
-  const { state } = useContext(State)
+function NavbarLinks(props) {
+  // const { state } = useContext(State)
 
   return (
     <Location>
       {({ location }) => {
-        if (state.authenticated) {
+        if (props.login.success) {
           return (
             <Fragment>
               {dashboard.map(({ to, ariaLabel, title }, index) => (
@@ -48,4 +49,9 @@ function NavbarLinks() {
   )
 }
 
-export default NavbarLinks
+const mapStateToProps = ({ login }) => ({
+  login,
+});
+
+export { NavbarLinks };
+export default connect(mapStateToProps)(NavbarLinks);
