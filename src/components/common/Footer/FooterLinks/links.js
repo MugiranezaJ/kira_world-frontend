@@ -11,16 +11,4 @@ export default [
     title: "Help",
     href: "#"
   },
-  {
-    title: "Careers",
-    href: "#"
-  },
-  {
-    title: "Affiliate",
-    href: "#"
-  },
-  {
-    title: "Fees",
-    href: "#"
-  }
 ]

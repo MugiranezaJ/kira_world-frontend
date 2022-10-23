@@ -16,7 +16,7 @@ export const FixedBackground = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(45, 190, 96, 0.9), rgba(45, 190, 96, 0.9)), url("${team}");
+    background: linear-gradient(rgba(45, 150, 190, 0.9), rgba(45, 150, 190, 0.9)), url("${team}");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

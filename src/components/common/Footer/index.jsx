@@ -8,7 +8,10 @@ import { Divider } from "./styles"
 
 export function Footer() {
   return (
-    <Wrapper padding="4.125rem 0">
+    <Wrapper
+      padding="4.125rem 0"
+      backgroundColor = "#143a69" // I was here 
+      >
       <Contents>
         <Row>
           <Col>

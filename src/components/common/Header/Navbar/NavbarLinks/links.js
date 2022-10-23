@@ -33,7 +33,7 @@ export const dashboard = [
     title: "Transactions"
   },
   {
-    to: "/send-request-money",
+    to: "/send-money",
     ariaLabel: "Send or request funds",
     title: "Send/Request"
   },

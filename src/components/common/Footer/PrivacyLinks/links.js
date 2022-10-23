@@ -1,5 +1,17 @@
 export default [
   {
+    title: "About Us",
+    href: "#"
+  },
+  {
+    title: "support",
+    herf: "#"
+  },
+  {
+    title: "help",
+    href: "#"
+  },
+  {
     title: "Security",
     href: "#"
   },

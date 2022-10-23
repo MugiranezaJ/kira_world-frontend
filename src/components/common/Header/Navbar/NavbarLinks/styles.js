@@ -10,13 +10,13 @@ export const NavLink = styled.a`
   &:hover,
   &:focus {
     text-decoration: none;
-    color: #2dbe60;
+    color: #1e81b0;
   }
   
   ${({ pathname, to }) =>
     pathname === to &&
     `
     text-decoration: none;
-    color: #2dbe60;
+    color: #1e81b0;
   `}
 `

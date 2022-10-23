@@ -19,18 +19,20 @@ import { navigate } from "@reach/router"
 
 function App(props) {
   // const { state } = useContext(State)
+  const is_authenticated = localStorage.getItem("KW_AT")
   if(props.login.success){
     navigate("/dashboard")
   }
 
-  if (props.login.success) {
+  console.log(is_authenticated)
+  if (is_authenticated) {
     return (
       <Layout>
         <Router>
           <Landing path="/" />
           <Dashboard path="/dashboard" />
           <Transactions path="/transactions" />
-          <SendRequest path="/send-request-money" />
+          <SendRequest path="/send-money" />
           <Settings path="/settings" />
           <NotFound default />
         </Router>

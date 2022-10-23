@@ -21,20 +21,11 @@ function WhatCanYouDoWithKiraWorld() {
                   icon={card.icon}
                   size="4x"
                   transform="shrink-2"
-                  color="#2dbe60"
+                  color="#1e81b0"
                 />
               </Icon>
             </Card>
           ))}
-        </Row>
-        <Row justify="center">
-          <ButtonLink href="#" fontSize="1.125rem">
-            See more you can do{" "}
-            <FontAwesomeIcon
-              icon="chevron-right"
-              transform="down-1 shrink-3 right-4"
-            />
-          </ButtonLink>
         </Row>
       </Contents>
     </Wrapper>

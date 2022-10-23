@@ -10,8 +10,9 @@ import {
   Title,
   Description,
   CTAButton,
-  DemoButton
+  DemoButton,
 } from "./styles"
+import { ButtonSecondary } from "components/common"
 
 function Intro() {
   const settings = {
@@ -32,6 +33,11 @@ function Intro() {
               <Title size={slide.titleSize}>{slide.title}</Title>
               <Description>{slide.descriptionOne}</Description>
               <Description>{slide.descriptionTwo}</Description>
+              <ButtonSecondary
+                onClick={() => window.location.replace("/send-money")}
+              >
+                Send Money
+              </ButtonSecondary>
             </Content>
           </Wrapper>
         </Slide>

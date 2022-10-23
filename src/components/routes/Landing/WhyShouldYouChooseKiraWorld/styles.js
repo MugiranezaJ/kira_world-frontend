@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Heading = styled.h2`
   font-size: 2.25rem;
   text-align: center;
+  color: #fff;
 `
 
 export const SubHeading = styled.p`
@@ -32,6 +33,7 @@ export const Feature = styled.div`
 export const Title = styled.h3`
   font-size: 20px;
   margin: 20px 0 10px;
+  color: #fff;
 `
 
 export const Description = styled.p`

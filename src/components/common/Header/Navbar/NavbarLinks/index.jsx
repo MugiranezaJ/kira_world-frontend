@@ -7,11 +7,12 @@ import { connect } from "react-redux"
 
 function NavbarLinks(props) {
   // const { state } = useContext(State)
+  const is_authenticated = localStorage.getItem("KW_AT")
 
   return (
     <Location>
       {({ location }) => {
-        if (props.login.success) {
+        if (is_authenticated) {
           return (
             <Fragment>
               {dashboard.map(({ to, ariaLabel, title }, index) => (

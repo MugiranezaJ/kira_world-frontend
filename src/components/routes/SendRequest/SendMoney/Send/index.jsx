@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react"
-import { Formik, ErrorMessage } from "formik"
+import { Formik, ErrorMessage, useFormik } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 // import { useFlutterwave } from 'flutterwave-react-v3';
@@ -30,7 +30,7 @@ import {
   Fee
 } from "./styles"
 
-function Send({ setStep }) {
+function Send({ setStep, handleInputChange }) {
   // fake data set
   const options = [
     { value: "usd", label: "USD", description: "United States dollar" },
@@ -97,6 +97,7 @@ function Send({ setStep }) {
       <Formik
         initialValues={{
           email: "",
+          phone: "",
           send: 10.0,
           recipient: 0,
           sendCurrency: options[0],
@@ -111,7 +112,12 @@ function Send({ setStep }) {
               .required("A send amount is required")
           })
         }
+        onChange = {(e) => { 
+          handleInputChange(e)
+          // formik.handleChange(e);
+         }}
         onSubmit={(values, { setSubmitting }) => {
+          console.log("here!>>>>>>>>>>>>>>>.")
           // handleFlutterPayment({
           //   callback: (response) => {
           //     console.log('Payment Successful', response);
@@ -120,8 +126,9 @@ function Send({ setStep }) {
     
           //   },
           // });
-          // console.log("Submiiit")
+          console.log("Submiiit")
           // setStep({ step: "confirm", details: { ...values } })
+          setStep("confirm")
           // setSubmitting(false)
         }}
       >
@@ -134,7 +141,7 @@ function Send({ setStep }) {
           <Form onSubmit={handleSubmit}>
             <FormName>Personal Details</FormName>
 
-            <Label label="email">
+            {/* <Label label="email">
               <InputName>Recipient</InputName>
               <TextInput
                 id="email"
@@ -146,6 +153,19 @@ function Send({ setStep }) {
                 placeholder="Enter Email Address"
               />
               <ErrorMessage component={Error} name="email" />
+            </Label> */}
+            <Label label="Phone Number">
+              <InputName>Recipient</InputName>
+              <TextInput
+                id="phone"
+                type="number"
+                name="account_number"
+                onChange={handleInputChange}
+                onBlur={handleBlur}
+                value={values.phone}
+                placeholder="Enter Phone number"
+              />
+              <ErrorMessage component={Error} name="phone" />
             </Label>
 
             <Label label="send" nomargin>
@@ -234,7 +254,7 @@ function Send({ setStep }) {
             </TotalToPay>
 
             <ButtonPrimary stretch type="submit">
-              Continue
+              Charge
             </ButtonPrimary>
           </Form>
         )}
