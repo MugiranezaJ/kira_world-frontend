@@ -15,7 +15,8 @@ function LoginSignout(props) {
     return navigate("/")
   }
 
-  if (props.login.success) {
+  const is_authenticated = localStorage.getItem("KW_AT")
+  if (is_authenticated) {
     return (
       <Fragment>
         <NavLink as={Link} to="/settings" aria-label="Your account settings">
@@ -47,8 +48,9 @@ function mapDispatchToProps(dispatch) {
     },
   };
 }
-const mapStateToProps = ({ login }) => ({
+const mapStateToProps = ({ login, register }) => ({
   login,
+  register
 });
 
 export { LoginSignout };

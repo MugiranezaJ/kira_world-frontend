@@ -34,8 +34,8 @@ export const dashboard = [
   },
   {
     to: "/send-money",
-    ariaLabel: "Send or request funds",
-    title: "Send/Request"
+    ariaLabel: "Send funds",
+    title: "Send"
   },
   {
     to: "/help",

@@ -6,6 +6,7 @@ const initialState ={
   success: false,
   snackBarMessage: false,
   error: '',
+  user: {}
 };
 
 export const loginReducer = (state = initialState, action) =>{
@@ -26,6 +27,7 @@ export const loginReducer = (state = initialState, action) =>{
         loading: false,
         success: true,
         error: "",
+        user: action.user
     };
     case LOGIN_LOADING:
       return {

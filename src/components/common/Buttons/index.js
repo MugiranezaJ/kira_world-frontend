@@ -25,7 +25,7 @@ export const ButtonLink = styled.a`
   color: #1e81b0;
 
   &:hover {
-    color: #2dbe60;
+    color: #1e81b0;
   }
 `
 
@@ -34,25 +34,25 @@ export const ButtonLinkSecondary = styled.a`
   color: #8e9a9d;
 
   &:hover {
-    color: #2dbe60;
+    color: #1e81b0;
   }
 `
 
 export const ButtonPrimary = styled(Button)`
   color: #f8f9fa;
-  background-color: #2dbe60;
-  border-color: #2dbe60;
+  background-color: #1e81b0;
+  border-color: #1e81b0;
   margin: ${({ margin }) => margin || "0"};
   ${({ stretch}) => stretch && "width: 100%;"}
 
   &:focus {
-    background-color: #22b355;
-    border-color: #22b355;
+    background-color: #1e61b0;
+    border-color: #1e61b0;
   }
 
   &:hover {
-    background-color: #22b355;
-    border-color: #22b355;
+    background-color: #1e61b0;
+    border-color: #1e61b0;
   }
 `
 
@@ -86,12 +86,12 @@ export const ButtonOutline = styled(Button)`
 `
 
 export const ButtonOutlinePrimary = styled(ButtonOutline)`
-  color: #2dbe60;
-  border: 1px solid #2dbe60;
+  color: #1e81b0;
+  border: 1px solid #1e81b0;
 
   &:hover {
     color: #ffffff;
-    background-color: #2dbe60;
+    background-color: #1e81b0;
   }
 `
 
@@ -100,7 +100,7 @@ export const ButtonOutlineSecondary = styled(ButtonOutline)`
   border: 1px solid #f8f9fa;
 
   &:hover {
-    color: #2dbe60;
+    color: #1e81b0;
     background-color: #f8f9fa;
   }
 `

@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: stretch;
   width: 100%;
   height: 54px;
-  background-color: #2dbe60;
+  background-color: #1e81b0;
 `
 
 export const Wrapper = styled.div`

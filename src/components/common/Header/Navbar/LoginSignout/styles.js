@@ -11,7 +11,7 @@ export const NavLink = styled(ButtonLink)`
   &:hover,
   &:focus {
     text-decoration: none;
-    color: #2dbe60;
+    color: #1e81b0;
   }
 `
 export const SignupButton = styled(ButtonPrimary)`

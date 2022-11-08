@@ -14,7 +14,8 @@ import {
   Col
 } from "components/common"
 
-export function Transactions() {
+export function Transactions(props) {
+  const { user } = props
   return (
     <Fragment>
       <SEO title="Kira World Transactions" />
@@ -23,8 +24,8 @@ export function Transactions() {
         <Contents>
           <Row>
             <Col flex="2">
-              <Profile />
-              <AvailableBalance />
+              <Profile user={ user }/>
+              <AvailableBalance user={ user } />
               <Chat />
             </Col>
             <Col flex="10">

@@ -15,8 +15,9 @@ import {
   ButtonLink,
   ButtonPrimary
 } from "components/common"
+import { navigate } from "@reach/router"
 
-function Signup() {
+function Signup(props) {
   return (
     <Wrapper>
       <Formik
@@ -47,20 +48,32 @@ function Signup() {
           })
         }
         onSubmit={async (
-          { name, email, password },
+          { name, username, email, phone_number, country, city, password },
           { setSubmitting, setFieldValue }
         ) => {
-          try {
-            const user = await axios.post("/signup", {
-              name,
-              email,
-              password
-            })
-            setSubmitting(false)
-          } catch (err) {
-            setSubmitting(false)
-            setFieldValue("submitError", true)
+          await props.onRegister({
+            name,
+            username,
+            email,
+            phone_number,
+            country,
+            city,
+            password
+          })
+          if (props.register.succes){
+            navigate("/dashboard")
           }
+          // try {
+          //   const user = await axios.post("/signup", {
+          //     name,
+          //     email,
+          //     password
+          //   })
+          //   setSubmitting(false)
+          // } catch (err) {
+          //   setSubmitting(false)
+          //   setFieldValue("submitError", true)
+          // }
         }}
       >
         {({
@@ -85,6 +98,19 @@ function Signup() {
               <ErrorMessage component={Error} name="name" />
             </Label>
 
+            <Label label="username">
+              <InputName>Username</InputName>
+              <TextInput
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.username}
+                type="text"
+                name="username"
+                placeholder="Enter Your Username"
+              />
+              <ErrorMessage component={Error} name="username" />
+            </Label>
+
             <Label label="email">
               <InputName>Email Address</InputName>
               <TextInput
@@ -96,6 +122,45 @@ function Signup() {
                 placeholder="Enter Your Email"
               />
               <ErrorMessage component={Error} name="email" />
+            </Label>
+
+            <Label label="phone_number">
+              <InputName>Phone Number</InputName>
+              <TextInput
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.phone_number}
+                type="text"
+                name="phone_number"
+                placeholder="Enter Your Phone Number"
+              />
+              <ErrorMessage component={Error} name="name" />
+            </Label>
+
+            <Label label="country">
+              <InputName>Country</InputName>
+              <TextInput
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.country}
+                type="text"
+                name="country"
+                placeholder="Enter Your Country"
+              />
+              <ErrorMessage component={Error} name="country" />
+            </Label>
+
+            <Label label="city">
+              <InputName>City</InputName>
+              <TextInput
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.city}
+                type="text"
+                name="city"
+                placeholder="Enter Your City"
+              />
+              <ErrorMessage component={Error} name="city" />
             </Label>
 
             <Label label="password">
@@ -112,8 +177,9 @@ function Signup() {
             </Label>
 
             <ButtonPrimary stretch margin="0.5rem 0" type="submit">
-              Sign Up
+              {props.register.loading ? "Signing Up..." : "Sign Up"}
             </ButtonPrimary>
+            <div>{props.register.success ? "" : props.register.error}</div>
           </Form>
         )}
       </Formik>

@@ -10,16 +10,18 @@ import {
   EditProfile
 } from "./styles"
 
-export function Profile() {
+export function Profile({ user }) {
   const [focused, setFocus] = useState(false)
   const setFocusState = () => setFocus(!focused)
   const onFileInputClick = e => {
 
   }
+  const profile_image = user?.user?.data ? user.user.data.profile_picture : ""
+  const username = user?.user?.data ? user.user.data.username : ""
   return (
     <Wrapper>
       <ProfileImage>
-        <Image src="" alt="" />
+        <Image src={ profile_image } alt="" />
         <EditImage aria-label="change your profile image" focused={focused}>
           <FontAwesomeIcon
             icon="camera"
@@ -35,7 +37,7 @@ export function Profile() {
           />
         </EditImage>
       </ProfileImage>
-      <User>Hello, {"Smith Rhodes"}</User>
+      <User>Hello, {username}</User>
       <EditProfile
         aria-label="edit your profile"
         onClick={e => e.stopPropagation()}

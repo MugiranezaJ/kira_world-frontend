@@ -39,3 +39,10 @@ export const Links = styled.div`
   padding: 15px 15px 0;
   height: 2.4rem;
 `
+
+export const Heading = styled.h3`
+  font-family: "rubikregular", sans-serif;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+`

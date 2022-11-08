@@ -2,10 +2,10 @@ import React from "react"
 // import { State } from "state"
 import { Layout } from "components/common"
 import Login from "components/routes/Login"
+import Signup from "components/routes/Signup"
+import Dashboard from "components/routes/Dashboard"
 import {
   Landing,
-  Signup,
-  Dashboard,
   Transactions,
   SendRequest,
   Settings,
@@ -20,7 +20,7 @@ import { navigate } from "@reach/router"
 function App(props) {
   // const { state } = useContext(State)
   const is_authenticated = localStorage.getItem("KW_AT")
-  if(props.login.success){
+  if(is_authenticated){
     navigate("/dashboard")
   }
 
@@ -31,7 +31,7 @@ function App(props) {
         <Router>
           <Landing path="/" />
           <Dashboard path="/dashboard" />
-          <Transactions path="/transactions" />
+          <Transactions path="/transactions" user={props.user} />
           <SendRequest path="/send-money" />
           <Settings path="/settings" />
           <NotFound default />
@@ -55,8 +55,10 @@ function App(props) {
   )
 }
 
-const mapStateToProps = ({ login }) => ({
+const mapStateToProps = ({ login, register, user }) => ({
   login,
+  register,
+  user
 });
 
 export { App };

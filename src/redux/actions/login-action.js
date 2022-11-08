@@ -9,7 +9,9 @@ export const loginAction = (userCredentials) => (dispatch) => {
   dispatch({ type: LOGIN_LOADING });
   return Axios.post(`/login`, userCredentials)
     .then((res) => {
+      console.log(res)
       localStorage.setItem("KW_AT", res.data.token);
+      localStorage.setItem("user", res.data.user.email)
       dispatch({
         type: USER_LOGIN,
         user: res.data.user,
@@ -32,5 +34,7 @@ export const loginAction = (userCredentials) => (dispatch) => {
 };
 
 export const logoutAction = () => (dispatch) => {
+  localStorage.removeItem("KW_AT")
+  localStorage.removeItem("user")
   dispatch({ type: LOGOUT });
 };

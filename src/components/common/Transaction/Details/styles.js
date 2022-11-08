@@ -24,7 +24,7 @@ export const Banner = styled.div`
   padding-bottom: 15px;
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-  background-color: #2dbe60;
+  background-color: #1e81b0;
 
   @media (min-width: 768px){
     flex: 5;

@@ -51,7 +51,7 @@ export const EditImage = styled.div`
   bottom: 0;
   right: 0;
   border-radius: 50%;
-  background-color: #2dbe60;
+  background-color: #1e81b0;
 
   &::before {
     content: 'Change Profile Image';
