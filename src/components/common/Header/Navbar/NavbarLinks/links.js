@@ -1,9 +1,9 @@
 export const home = [
-  {
-    to: "/send",
-    ariaLabel: "Learn how to send funds to over 180 countries",
-    title: "Send"
-  },
+  // {
+  //   to: "/send-money",
+  //   ariaLabel: "Learn how to send funds to over 180 countries",
+  //   title: "Send"
+  // },
   {
     to: "/about-us",
     ariaLabel: "Learn about our company",

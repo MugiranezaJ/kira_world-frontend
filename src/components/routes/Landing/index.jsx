@@ -16,7 +16,7 @@ export function Landing() {
       <WhyShouldYouChooseKiraWorld />
       <WhatCanYouDoWithKiraWorld />
       <AwesomeCustomerSupport />
-      <GetTheApp />
+      {/* <GetTheApp /> */}
       <Footer />
     </Fragment>
   )

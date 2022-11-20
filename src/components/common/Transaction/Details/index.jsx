@@ -26,7 +26,7 @@ function TransactionDetails({ closeModal }) {
       <Banner>
         <BannerContents>
           <FontAwesomeIcon icon="building" size="5x" color="#ffffff" />
-          <BannerTransactionName>HDFC Bank</BannerTransactionName>
+          <BannerTransactionName>KRWRLD Money</BannerTransactionName>
           <BannerTransactionAmount>$550.00</BannerTransactionAmount>
           <BannerTransactionDate>15 March 2019</BannerTransactionDate>
         </BannerContents>
@@ -57,7 +57,7 @@ function TransactionDetails({ closeModal }) {
           </TransactionTotal>
           <List>
             <Item medium>Paid by:</Item>
-            <Item color="#8e9a9d">HDFC Bank</Item>
+            <Item color="#8e9a9d">KRWRLD Money</Item>
           </List>
           <List>
             <Item medium>Transaction ID:</Item>
@@ -65,7 +65,7 @@ function TransactionDetails({ closeModal }) {
           </List>
           <List>
             <Item medium>Description:</Item>
-            <Item color="#8e9a9d">Withdraw to Bank account</Item>
+            <Item color="#8e9a9d">Withdraw to Mobile Money Account</Item>
           </List>
           <List>
             <Item medium>Status:</Item>

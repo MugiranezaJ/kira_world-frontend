@@ -24,7 +24,6 @@ function App(props) {
     navigate("/dashboard")
   }
 
-  console.log(is_authenticated)
   if (is_authenticated) {
     return (
       <Layout>
@@ -33,7 +32,7 @@ function App(props) {
           <Dashboard path="/dashboard" />
           <Transactions path="/transactions" user={props.user} />
           <SendRequest path="/send-money" />
-          <Settings path="/settings" />
+          <Settings path="/settings"  user={props.user}/>
           <NotFound default />
         </Router>
       </Layout>
@@ -44,12 +43,12 @@ function App(props) {
     <Layout>
       <Router>
         <Landing path="/" />
-        <Login path="/login" />
+        <Login path="/login" default/>
         <Signup path="/signup" />
-        <Send path="/send" />
+        {/* <Send path="/send-money" /> */}
         <Forbidden path="/dashboard" />
         <Forbidden path="/transactions" />
-        <NotFound default />
+        {/* <NotFound default /> */}
       </Router>
     </Layout>
   )

@@ -13,7 +13,7 @@ export const CONFIRM_PIN_ERROR = 'CONFIRM_PIN_ERROR'
 
 export const transferAction = (transferData) => dispatch => {
     dispatch({ type: TRANSFER_LOADING });
-    return Axios.post('/charge_card', transferData)
+    return Axios.post('/initiate_transfer', transferData)
     .then((res) => {
         // localStorage.setItem('mechat_access_token',res.data.token);
         // console.log(res)

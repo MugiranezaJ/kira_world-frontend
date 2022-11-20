@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   padding: 3rem 0 0;
   width: 100vw;
   height: 46vh;
-  background: linear-gradient(rgba(45, 190, 96, 0.9), rgba(45, 190, 96, 0.9)), url("${image}");
+  background: linear-gradient(rgba(2,0,36,0.8), rgba(2,0,36,0.8)), url("${image}");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

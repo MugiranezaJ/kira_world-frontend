@@ -7,6 +7,7 @@ import Hamburger from "./Hamburger"
 import NavbarLinks from "./NavbarLinks"
 import LoginSignout from "./LoginSignout"
 import Drawer from "./Drawer"
+import { NavLink } from "./NavbarLinks/styles"
 
 function NavBar() {
   const [toggle, setToggle] = useState(false)
@@ -14,9 +15,15 @@ function NavBar() {
     <Fragment>
       <Wrapper as={Contents}>
         <Logo>
-          <Link to="/">
+          <NavLink
+            key={10}
+            as={Link}
+            to={"/"}
+            aria-label={"ariaLabel"}
+            pathname={"location.pathname"}
+          >
             Kira World
-          </Link>
+          </NavLink>
         </Logo>
         <Hamburger setToggle={() => setToggle(!toggle)} toggle={toggle} />
         <Nav>

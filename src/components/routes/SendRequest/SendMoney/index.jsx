@@ -3,6 +3,8 @@ import { State } from "state"
 import Send from "./Send"
 import Confirm from "./Confirm"
 import Success from "./Success"
+import { connect } from "react-redux"
+import { transferAction } from "redux/actions/transferAction"
 
 class SendMoney extends Component {
 
@@ -36,23 +38,70 @@ class SendMoney extends Component {
     details: {}
   }
   // Handle fields change
-  handleInputChange = input => e => {
-    console.log("input: ", e.target.value)
-    this.setState({ [input]: e.target.value });
+  handleInputChange = e => {
+    console.log(e.target.name, e.target.value)
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  setDestAmount = amount => {
+    console.log("serting dest amaount", amount)
+    this.setState({destination_amount: amount})
   }
   setStep = step => {
     this.setState({step})
   }
   render() {
+    console.log("------------------------------------")
+    console.log(this.props)
     const { step, details } = this.state;
+    const { user, money_transfer, makeTransfer } = this.props
     return (
       <Fragment>
-      {step === "send" && <Send setStep={this.setStep} handleInputChange={this.handleInputChange} />}
-      {step === "confirm" && <Confirm details={details} setStep={this.setStep}/>}
-      {step === "success" && <Success details={details} setStep={this.setStep}/>}
+      {step === "send"
+        && <Send 
+          setStep={this.setStep} 
+          setDestAmount={this.setDestAmount} 
+          handleInputChange={this.handleInputChange} 
+          stateValues={this.state} user={user} 
+          />}
+      {step === "confirm" 
+        && <Confirm 
+          details={details} 
+          setStep={this.setStep} 
+          user={user} 
+          stateValues={this.state} 
+          makeTransfer={makeTransfer} 
+          money_transfer={money_transfer}
+          />}
+      {step === "success" 
+        && <Success 
+        details={details}
+        setStep={this.setStep}
+        user= {user}
+        stateValues={this.state}
+        money_transfer={money_transfer}
+        />}
       </Fragment>
     )
   }
 }
 
-export default SendMoney
+function mapDispatchToProps(dispatch) {
+  return {
+    onFetchUser: (email) => {
+      // dispatch(userAction(email));
+    },
+    makeTransfer: (data) => {
+      dispatch(transferAction(data));
+    },
+  };
+}
+
+const mapStateToProps = ({ login, register, user, money_transfer }) => ({
+  login,
+  register,
+  user,
+  money_transfer,
+});
+
+export { SendMoney };
+export default connect(mapStateToProps, mapDispatchToProps)(SendMoney);

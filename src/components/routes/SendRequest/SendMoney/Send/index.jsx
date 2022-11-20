@@ -30,7 +30,7 @@ import {
   Fee
 } from "./styles"
 
-function Send({ setStep, handleInputChange }) {
+function Send({ setStep, setDestAmount, handleInputChange, stateValues }) {
   // fake data set
   const options = [
     { value: "usd", label: "USD", description: "United States dollar" },
@@ -62,6 +62,10 @@ function Send({ setStep, handleInputChange }) {
     }
     fetchData()
   }, [sendCurrency, recipientCurrency])
+
+  // const handleAmountChange = (e) => {
+  //   setDestAmount(e.target.value)
+  // }
 
   const onSendCurrencyChange = option => setSendCurrency(option.value)
 
@@ -97,7 +101,7 @@ function Send({ setStep, handleInputChange }) {
       <Formik
         initialValues={{
           email: "",
-          phone: "",
+          account_number: "",
           send: 10.0,
           recipient: 0,
           sendCurrency: options[0],
@@ -112,12 +116,19 @@ function Send({ setStep, handleInputChange }) {
               .required("A send amount is required")
           })
         }
-        onChange = {(e) => { 
-          handleInputChange(e)
-          // formik.handleChange(e);
-         }}
-        onSubmit={(values, { setSubmitting }) => {
+        // onChange = {(e) => { 
+        //   console.log("inside onchange >>>>>>>>>>>>>>>>>>>")
+        //   console.log(e)
+        //   handleInputChange(e)
+        //   // formik.handleChange(e);
+        //  }}
+        onSubmit={ async (values, { setSubmitting }) => {
           console.log("here!>>>>>>>>>>>>>>>.")
+          console.log(values.send)
+          // await setDestAmount(values.send)
+          // handleInputChange(values)
+          console.log("here!>>>>>>>>>>>>>>>.")
+          console.log(stateValues)
           // handleFlutterPayment({
           //   callback: (response) => {
           //     console.log('Payment Successful', response);
@@ -157,15 +168,15 @@ function Send({ setStep, handleInputChange }) {
             <Label label="Phone Number">
               <InputName>Recipient</InputName>
               <TextInput
-                id="phone"
-                type="number"
+                id="account_number"
+                type="text"
                 name="account_number"
-                onChange={handleInputChange}
+                onChange={ handleInputChange }
                 onBlur={handleBlur}
-                value={values.phone}
+                defaultValue={stateValues.account_number}
                 placeholder="Enter Phone number"
               />
-              <ErrorMessage component={Error} name="phone" />
+              <ErrorMessage component={Error} name="account_number" />
             </Label>
 
             <Label label="send" nomargin>
@@ -178,7 +189,7 @@ function Send({ setStep, handleInputChange }) {
                   step="0.01"
                   min="10"
                   name="send"
-                  onChange={handleChange}
+                  onChange={(e) => {handleChange(e); setDestAmount(e.target.value)}}
                   onBlur={handleBlur}
                   value={values.send}
                 />

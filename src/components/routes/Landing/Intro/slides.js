@@ -10,7 +10,7 @@ export default [
     descriptionTwo: "Over 180 countries and 120 currencies supported.",
     buttonOneDescription: "Open a Free Account",
     buttonTwoDescription: "See How it Works",
-    image: manWithPhone,
+    image: womenWithLaptop,
     titleSize: "lg",
     alignContent: "start"
   },

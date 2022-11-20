@@ -10,7 +10,7 @@ export default {
     facebook: "http://www.facebook.com/",
     twitter: "http://www.twitter.com/",
     google: "http://google.com/",
-    youtube: "http://youtube.com/"
+    instagram: "http://instagram.com/"
   },
   googleAnalyticsID: "",
   themeColor: "#2dbe60",
@@ -19,7 +19,7 @@ export default {
     facebook: "",
     twitter: "",
     google: "",
-    youtube: ""
+    instagram: ""
   },
   address: {
     city: "",

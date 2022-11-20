@@ -16,8 +16,9 @@ import {
   } from "components/common"
 
 
-  export function Settings(){
+  export function Settings(props){
     const [tab, setTab] = useState("account")
+    const { user } = props
 
     const onTabClicked = e => {
       e.preventDefault()
@@ -43,9 +44,9 @@ import {
           <Contents>
               <Row>
                   <Col flex="2">
-                      <Profile />
-                      <AvailableBalance />
-                      <Chat />
+                      <Profile user={ user } />
+                      <AvailableBalance user={ user } />
+                      {/* <Chat /> */}
                   </Col>
                   <Col flex="10">
                       <Account />

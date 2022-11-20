@@ -24,12 +24,12 @@ export function Transaction() {
       <Row>
         <Col flexSM="1" flexMD="1" flex="1">
           <Date>
-            <Day>16</Day>
-            <Month>APR</Month>
+            <Day>17</Day>
+            <Month>NOV</Month>
           </Date>
         </Col>
         <Col flexSM="8" flexMD="7" flex="7">
-          <TransactionName>HDFC Bank</TransactionName>
+          <TransactionName>KRWRLD Money</TransactionName>
           <TransactionDescription>
             Withdraw to Bank account
           </TransactionDescription>

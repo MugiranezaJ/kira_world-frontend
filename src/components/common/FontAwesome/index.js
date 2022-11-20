@@ -4,7 +4,7 @@ import {
   faFacebookF,
   faTwitter,
   faGoogle,
-  faYoutube
+  faInstagram
 } from "@fortawesome/free-brands-svg-icons"
 import { faCircle } from "@fortawesome/free-regular-svg-icons"
 import {
@@ -74,5 +74,5 @@ library.add(
   faFacebookF,
   faTwitter,
   faGoogle,
-  faYoutube
+  faInstagram
 )

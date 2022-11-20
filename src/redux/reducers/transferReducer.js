@@ -29,7 +29,7 @@ export const transferReducer = (state = initialState, action) =>{
                 ...state,
                 loading: false,
                 success: true,
-                flw_response: action.transfer
+                transfer_response: action.transfer
             }
         case TRANSFER_LOADING:
             return {

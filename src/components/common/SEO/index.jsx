@@ -49,7 +49,7 @@ export function SEO({
       "${socialLinks.facebook}",
 			"${socialLinks.twitter}",
 			"${socialLinks.google}",
-			"${socialLinks.youtube}"
+			"${socialLinks.instagram}"
 		]
   	}`
   return (

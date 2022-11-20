@@ -12,7 +12,7 @@ export default [
     icon: "google"
   },
   {
-    alt: "Youtube",
-    icon: "youtube"
+    alt: "Instagram",
+    icon: "instagram"
   }
 ]

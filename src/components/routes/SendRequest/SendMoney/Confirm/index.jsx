@@ -22,10 +22,10 @@ import {
   Total,
   TotalAmount
 } from "./styles";
-import { transferAction } from "redux/actions/transferAction";
-import { connect } from "react-redux";
+// import { transferAction } from "redux/actions/transferAction";
+// import { connect } from "react-redux";
 
-function Confirm({ email, setStep, money_transfer, otp_verify, makeTransfer }) {
+function Confirm({ setStep, user, stateValues, makeTransfer, money_transfer }) {
   const sender = {
     card_number: "5531886652142950",
     cvv: "564",
@@ -54,6 +54,13 @@ function Confirm({ email, setStep, money_transfer, otp_verify, makeTransfer }) {
     meta:recipient_meta
   }
 
+  // console.log("money_transfer: ", money_transfer)
+  // console.log("makeTransfer:", makeTransfer)
+  const name = user?.user?.data ? user.user.data.name : ""
+  const phone_number = user?.user?.data ? user.user.data.phone_number : ""
+  const { destination_amount, account_number } = stateValues
+  if (money_transfer.success) setStep("success")
+
   return (
     <Fragment>
       <Heading>Send Money</Heading>
@@ -76,12 +83,21 @@ function Confirm({ email, setStep, money_transfer, otp_verify, makeTransfer }) {
           })
         }
         onSubmit={(values) => {
-          const payload = Object.assign({}, {sender: sender, momo_recipient})
+          // console.log(values)
+          const payload = {
+            user: user.user.data.id,
+            recipient: account_number,
+            description: values.description,
+            destination_amount
+          }
+          // console.log(payload)
+          
+          // const payload = Object.assign({}, {sender: sender, momo_recipient})
           console.log("making transfer...")
           makeTransfer(payload)
           console.log("finished making transfer....")
           // setStep({ step: "success", details: { ...values } })
-          setStep("success")
+          
           console.log("after jumping to the next step....")
         }}
       >
@@ -103,27 +119,27 @@ function Confirm({ email, setStep, money_transfer, otp_verify, makeTransfer }) {
             
             <FormName>Details</FormName>
             <SendAmount>
-              Sender Name <Amount>Jacks</Amount>
+              Sender Name <Amount>{name}</Amount>
             </SendAmount>
             <SendAmount>
-              Sender bank number <Amount>1,000.00 USD</Amount>
+              Sender momo number <Amount>{phone_number}</Amount>
             </SendAmount>
             <SendAmount>
-              Send Amount <Amount>5531886652142950</Amount>
+              Send Amount <Amount>{ destination_amount }</Amount>
             </SendAmount>
             <TotalFees>
               Total Fees <Fees>7.21 USD</Fees>
             </TotalFees>
             <Divider />
             <Total>
-              Total <TotalAmount>1,007.21 USD</TotalAmount>
+              Total <TotalAmount>{ destination_amount }</TotalAmount>
             </Total>
             <ButtonPrimary 
                 onClick={() => setStep("send")}
                 >
                 Back
             </ButtonPrimary>
-            <ButtonPrimary type="submit">Send Money</ButtonPrimary>
+            <ButtonPrimary type="submit">{money_transfer.loading ? "Sending Money" : "Send Money"}</ButtonPrimary>
           </Form>
         )}
       </Formik>
@@ -131,21 +147,28 @@ function Confirm({ email, setStep, money_transfer, otp_verify, makeTransfer }) {
   );
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    makeTransfer: (data) => {
-      dispatch(transferAction(data));
-    },
-  };
-}
+// {
+//   user,
+//   recipient,
+//   amount,
+//   description,
+//   tx_ref
+// }
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     makeTransfer: (data) => {
+//       dispatch(transferAction(data));
+//     },
+//   };
+// }
 
-const mapStateToProps = ({ login, money_transfer, otp_verify }) => ({
-  login,
-  money_transfer,
-  otp_verify
-});
+// const mapStateToProps = ({ login, money_transfer, otp_verify }) => ({
+//   login,
+//   money_transfer,
+//   otp_verify
+// });
 
-export { Confirm };
-export default connect(mapStateToProps, mapDispatchToProps)(Confirm);
+// export { Confirm };
+// export default connect(mapStateToProps, mapDispatchToProps)(Confirm);
 
-// export default Confirm;
+export default Confirm;

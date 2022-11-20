@@ -23,7 +23,8 @@ import {
   TotalAmount
 } from "./styles";
 
-function Success({ email, setStep }) {
+function Success({ email, setStep, money_transfer }) {
+  console.log("makeTransfer:", money_transfer)
   return (
     <Fragment>
       <Heading>Yeah!</Heading>

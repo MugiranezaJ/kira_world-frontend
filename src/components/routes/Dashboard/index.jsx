@@ -33,7 +33,7 @@ function Dashboard(props) {
             <Col flex="2">
               <Profile user={ user } />
               <AvailableBalance user={ user } />
-              <Chat />
+              {/* <Chat /> */}
             </Col>
             <Col flex="10">
               <ProfileCompleteness user={ user } />
