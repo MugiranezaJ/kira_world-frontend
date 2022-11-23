@@ -10,7 +10,6 @@ function LoginSignout(props) {
 
   const signOut = () => {
     // dispatch({ type: "SIGNED_OUT" })
-    console.log("signing out")
     props.onLogut();
     return navigate("/")
   }

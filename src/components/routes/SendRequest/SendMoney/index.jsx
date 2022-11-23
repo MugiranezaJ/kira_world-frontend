@@ -17,6 +17,7 @@ class SendMoney extends Component {
     account_number: '',
     amount: '',
     dest_medium:'momo_wallet',
+    receiver_wallet_id: "",
     // account_number:'',
     // narration:'',
     currency:'RWF',
@@ -48,6 +49,9 @@ class SendMoney extends Component {
   }
   setStep = step => {
     this.setState({step})
+  }
+  setReceiverWalletId = wallet_id => {
+    this.setState({receiver_wallet_id: wallet_id})
   }
   render() {
     console.log("------------------------------------")

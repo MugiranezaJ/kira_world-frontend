@@ -20,7 +20,7 @@ export function AvailableBalance(props) {
         Available Balance
       </Title>
       <Heading>
-        {`$${wallet_id}`}
+        {`${wallet_id}`}
       </Heading>
       <Title>
         Your Payment Token

@@ -174,7 +174,7 @@ function Send({ setStep, setDestAmount, handleInputChange, stateValues }) {
                 onChange={ handleInputChange }
                 onBlur={handleBlur}
                 defaultValue={stateValues.account_number}
-                placeholder="Enter Phone number"
+                placeholder="Enter Payment Token"
               />
               <ErrorMessage component={Error} name="account_number" />
             </Label>

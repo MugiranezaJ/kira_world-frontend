@@ -23,7 +23,6 @@ import {
 import { Wrapper } from "./styles"
 
 function LoginForm(props) {
-  console.log(props)
   return (
     <Wrapper>
       <Formik

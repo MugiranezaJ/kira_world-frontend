@@ -22,7 +22,7 @@ function AdditonalFilters({ toggled }) {
           value="payments-sent"
         />
         <StyledRadioInput />
-        Payments Sent
+        Money Sent
       </RadioInputLabel>
       <RadioInputLabel label="payments-received">
         <RadioInput 
@@ -31,9 +31,9 @@ function AdditonalFilters({ toggled }) {
           value="payments-received"
         />
         <StyledRadioInput />
-        Payments Received
+        Money Received
       </RadioInputLabel>
-      <RadioInputLabel label="refunds">
+      {/* <RadioInputLabel label="refunds">
         <RadioInput 
           name="filter"
           id="refunds"
@@ -41,7 +41,7 @@ function AdditonalFilters({ toggled }) {
         />
         <StyledRadioInput />
         Refunds
-      </RadioInputLabel>
+      </RadioInputLabel> */}
       <RadioInputLabel label="withdrawals">
         <RadioInput 
           name="filter"
